@@ -1,0 +1,18 @@
+<div *ngIf="usersData" class="container row mt-3 ml-3">
+    <h3 class="mb-3">List of Users</h3>
+    <div class="col-md-4">
+        <ul class="list-group" style="min-height: 400px;overflow-y: auto;height: 400px;">
+            <li 
+                class="list-group-item" 
+                *ngFor="let user of usersData" 
+                [ngClass]="{'active': selectedUserId === user._id}"
+                (click)="selectedUser(user)"
+            >
+                {{user.firstName}} {{user.secondName}} <strong>(@{{user.userName}})</strong>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <router-outlet></router-outlet>
+    </div>
+</div>
